@@ -1,8 +1,12 @@
 package com.algoritm_java;
 
 public class Main {
-    private static Solution001 s = new Solution001();
     public static void main(String[] args) {
-//        s.solution();
+
+        int[] food= {1, 3, 4, 6};
+        FoodFight foodFight = new FoodFight();
+        String answer = foodFight.solution(food);
+
+        System.out.println("answer ::" + answer);
     }
 }
