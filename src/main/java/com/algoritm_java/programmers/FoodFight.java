@@ -1,9 +1,8 @@
-package com.algoritm_java;
+package com.algoritm_java.programmers;
 
 import java.lang.*;
-
-class FoodFight {
-    public String solution(int[] food) {
+public class FoodFight {
+    public static String solution(int[] food) {
         /*
             1) food[]의 1번째 요소부터 순회 돌기
             2) 요소를 2로 나누고 몫(n) 만 취하기
@@ -27,5 +26,11 @@ class FoodFight {
 
         String answer = forwardString + "0" + reverseString;
         return answer;
+    }
+
+    public static void main(String[] args) {
+        int[] food= {1, 3, 4, 6};
+        String answer = solution(food);
+        System.out.println("answer :: " + answer);
     }
 }
