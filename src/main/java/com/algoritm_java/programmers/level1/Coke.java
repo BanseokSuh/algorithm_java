@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers;
+package com.algoritm_java.programmers.level1;
 
 public class Coke {
     public static int solution(int a, int b, int n) {

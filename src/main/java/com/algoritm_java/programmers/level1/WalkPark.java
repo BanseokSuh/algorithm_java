@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers;
+package com.algoritm_java.programmers.level1;
 
 public class WalkPark {
     public static int[] solution(String[] park, String[] routes) {

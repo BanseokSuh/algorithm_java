@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers;
+package com.algoritm_java.programmers.level1;
 
 import java.lang.*;
 public class FoodFight {
