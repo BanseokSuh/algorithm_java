@@ -3,25 +3,39 @@ package com.algoritm_java.programmers.level1;
 public class Babbling2 {
 
     public static int solution(String[] babbling) {
+        /**
+         * {"aya", "ye", "woo", "ma"} 말 말할 수 있음
+         */
         int answer = 0;
 
         for (int i = 0; i < babbling.length; i++) {
+            String babble = babbling[i];
+
             if (
-                babbling[i].contains("ayaaya")
-                || babbling[i].contains("yeye")
-                || babbling[i].contains("woowoo")
-                || babbling[i].contains("mama")
+                babble.contains("ayaaya") // 연속되는 단어 -> 아예 할 수 없으니 continue
+                || babble.contains("yeye")
+                || babble.contains("woowoo")
+                || babble.contains("mama")
             ) {
                 continue;
             }
 
-            babbling[i] = babbling[i].replace("aya", " ");
-            babbling[i] = babbling[i].replace("ye", " ");
-            babbling[i] = babbling[i].replace("woo", " ");
-            babbling[i] = babbling[i].replace("ma", " ");
-            babbling[i] = babbling[i].replace(" ", "");
+            // 빈 문자열로 치환
+            babble = babble.replace("aya", " ");
+            babble = babble.replace("ye", " ");
+            babble = babble.replace("woo", " ");
+            babble = babble.replace("ma", " ");
 
-            if (babbling[i].length()  == 0) answer++;
+            /**
+             * 바로 빈 문자열로 하지 않고 공백을 주는 이유
+             * - yayae의 경우 가운데 aya가 치환되어 ye가 되고, ye가 치환되어 빈 문자열이 되면
+             *   말할 수 없는 단어임에도 말할 수 있다고 결과가 나오기 때문에 이런 경우를 방지
+             */
+            babble = babble.replace(" ", "");
+
+            // 최종 치환된 문자열의 길이가 0일때
+            System.out.println("babble = " + babble);
+            if (babble.length() == 0) answer++;
 
         }
         return answer;
