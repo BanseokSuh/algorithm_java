@@ -6,7 +6,11 @@ public class Template {
     }
 
     public static void main(String[] args) {
-        int answer = solution(2);
-        System.out.println("answer = " + answer);
+
+        int answer1 = solution(2);
+        int answer2 = solution(2);
+
+        System.out.println("answer1 = " + answer1);
+        System.out.println("answer1 = " + answer2);
     }
 }
