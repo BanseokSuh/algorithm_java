@@ -1,4 +1,4 @@
-package com.algoritm_java.leetcode.array;
+package com.algoritm_java.leetcode.category.array;
 
 import java.util.Arrays;
 

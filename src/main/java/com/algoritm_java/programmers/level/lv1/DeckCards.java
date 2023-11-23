@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers.level1;
+package com.algoritm_java.programmers.level.lv1;
 
 public class DeckCards {
     public static String solution(String[] cards1, String[] cards2, String[] goal) {

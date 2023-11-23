@@ -1,8 +1,6 @@
-package com.algoritm_java.programmers.level1;
+package com.algoritm_java.programmers.level.lv1;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MemoryScore {
     public static int[] solution1(String[] name, int[] yearning, String[][] photo) {

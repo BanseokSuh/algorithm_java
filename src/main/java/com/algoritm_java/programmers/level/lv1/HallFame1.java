@@ -1,7 +1,6 @@
-package com.algoritm_java.programmers.level1;
+package com.algoritm_java.programmers.level.lv1;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class HallFame1 {
     public static int[] solution(int k, int[] score) {

@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers.level1;
+package com.algoritm_java.programmers.level.lv1;
 
 public class CalculateInsufficientAmounts {
     public static long solution(int price, int money, int count) {

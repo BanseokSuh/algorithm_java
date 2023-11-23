@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers.level1;
+package com.algoritm_java.programmers.level.lv1;
 public class PasswordOfUs {
     public static String solution(String s, String skip, int index) {
         String answer = "";
