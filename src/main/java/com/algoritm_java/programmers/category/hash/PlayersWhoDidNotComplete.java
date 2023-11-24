@@ -1,21 +1,45 @@
 package com.algoritm_java.programmers.category.hash;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class PlayersWhoDidNotComplete {
     public static String solution(String[] participant, String[] completion) {
         /**
+         * [배열]
          * 두 배열 sort해서 다르면 리턴
          * 중간에 다른 요소 없으면 participant의 제일 마지막 요소 리턴
          */
-        Arrays.sort(participant);
-        Arrays.sort(completion);
+//        Arrays.sort(participant);
+//        Arrays.sort(completion);
+//        for (int i = 0; i < completion.length; i++) {
+//            if (!participant[i].equals(completion[i])) return participant[i];
+//        }
+//        return participant[participant.length-1];
 
-        for (int i = 0; i < completion.length; i++) {
-            if (!participant[i].equals(completion[i])) return participant[i];
+        /**
+         * [Hash]
+         *
+         */
+        String answer = "";
+
+        HashMap<String, Integer> hm = new HashMap<>();
+
+        for (String player : participant) {
+            hm.put(player, hm.getOrDefault(player, 0) + 1);
         }
 
-        return participant[participant.length-1];
+        for (String player : completion) {
+            hm.put(player, hm.get(player) - 1);
+        }
+
+        for (String key : hm.keySet()) {
+            if (hm.get(key) != 0){
+                answer = key;
+            }
+        }
+
+        return answer;
     }
 
     public static void main(String[] args) {
