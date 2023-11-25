@@ -19,20 +19,37 @@ public class PlayersWhoDidNotComplete {
 
         /**
          * [Hash]
-         *
+         * 참가자 순회하여 hashMap에 key-value 형태로 이름-값 데이터 생성
+         * 완료자 순회하여 hashMap에서 같은 이름의 value를 1씩 뺌
+         * hashMap에서 값이 0이 아닌 key 리턴
          */
         String answer = "";
 
+        /**
+         * hashMap 인스턴스 생성
+         */
         HashMap<String, Integer> hm = new HashMap<>();
 
+        /**
+         * participant 순회
+         * key=player, value=1
+         * 이름이 중복된 참가자면 += 1
+         */
         for (String player : participant) {
             hm.put(player, hm.getOrDefault(player, 0) + 1);
         }
 
+        /**
+         * completion 순회
+         * hashMap에서 player 조회해서 해당 value -1
+         */
         for (String player : completion) {
             hm.put(player, hm.get(player) - 1);
         }
 
+        /**
+         *  hashMap을 탐색해서 value가 0이 아닌 key 찾아 리턴
+         */
         for (String key : hm.keySet()) {
             if (hm.get(key) != 0){
                 answer = key;
