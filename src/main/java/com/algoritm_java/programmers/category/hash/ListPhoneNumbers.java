@@ -24,11 +24,35 @@ public class ListPhoneNumbers {
 
         /**
          * for loop를 통한 해결
+         *  - 정렬
+         *  - 1번 순회로 앞뒤 요소 비교하여 startsWith한 요소가 있으면 return false
          */
-        Arrays.sort(phone_book);
-        for (int i = 0; i < phone_book.length - 1; i++) {
-            if (phone_book[i + 1].startsWith(phone_book[i])) return false;
+//        Arrays.sort(phone_book);
+//        for (int i = 0; i < phone_book.length - 1; i++) {
+//            if (phone_book[i + 1].startsWith(phone_book[i])) return false;
+//        }
+//        return true;
+
+        /**
+         * hash를 통한 해결
+         * - hashMap 생성
+         * - 2중 loop
+         *   - phone_book (array)
+         *     - phone_number (string)
+         *     - 문자열을 잘라 순회하여 hashMap이 해당 값을 key로 갖고 있으면 return false;
+         */
+        Map<String, Integer> hashMap = new HashMap();
+
+        for (String phone_number : phone_book) {
+            hashMap.put(phone_number, 1);
         }
+
+        for (int i = 0; i < phone_book.length; i++) {
+            for (int j = 0; j < phone_book[i].length(); j++) {
+                if (hashMap.containsKey(phone_book[i].substring(0, j))) return false;
+            }
+        }
+
         return true;
     }
 
