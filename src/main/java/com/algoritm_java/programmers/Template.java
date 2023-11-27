@@ -9,8 +9,10 @@ public class Template {
 
         int answer1 = solution(2);
         int answer2 = solution(2);
+        int answer3 = solution(2);
 
         System.out.println("answer1 = " + answer1);
-        System.out.println("answer1 = " + answer2);
+        System.out.println("answer2 = " + answer2);
+        System.out.println("answer3 = " + answer3);
     }
 }
