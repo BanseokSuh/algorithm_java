@@ -1,10 +1,9 @@
 package com.algoritm_java.programmers.category.hash;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListPhoneNumbers {
+public class Lv2_ListPhoneNumbers {
     public static boolean solution(String[] phone_book) {
         /**
          * phone_book loop

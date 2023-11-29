@@ -1,9 +1,8 @@
 package com.algoritm_java.programmers.category.hash;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
-public class PlayersWhoDidNotComplete {
+public class Lv1_PlayersWhoDidNotComplete {
     public static String solution(String[] participant, String[] completion) {
         /**
          * [배열]

@@ -1,9 +1,8 @@
 package com.algoritm_java.programmers.category.hash;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
-public class Ponketmon {
+public class Lv1_Ponketmon {
     public static int solution(int[] nums) {
         /**
          * [hashMap]
