@@ -8,6 +8,9 @@ public class Lv2_FeatureDevelopment {
     public static int[] solution(int[] progresses, int[] speeds) {
         List<Integer> list = new ArrayList<>();
 
+        /**
+         * 일이 끝나는 일수 배열
+         */
         int[] works = new int[progresses.length];
 
         for (int i = 0; i < speeds.length; i++) {
@@ -30,15 +33,15 @@ public class Lv2_FeatureDevelopment {
                 x = works[i];
             }
         }
+        
         list.add(count);
 
-        int[] answer = new int[list.size()];
-
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i);
-        }
-
-        return answer;
+        /**
+         * list to array 숙지
+         */
+        return list.stream()
+                .mapToInt(i -> (int) i)
+                .toArray();
     }
 
     public static void main(String[] args) {
