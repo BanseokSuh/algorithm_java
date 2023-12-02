@@ -1,47 +1,89 @@
 package com.algoritm_java.programmers.category.stackandqueue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Lv2_FeatureDevelopment {
     public static int[] solution(int[] progresses, int[] speeds) {
-        List<Integer> list = new ArrayList<>();
+        /**
+         * =================================================================================
+         * 배열를 사용한 풀이
+         */
+//        List<Integer> list = new ArrayList<>();
+//
+//        /**
+//         * 일이 끝나는 일수 배열
+//         */
+//        int[] works = new int[progresses.length];
+//
+//        for (int i = 0; i < speeds.length; i++) {
+//            works[i] = (100 - progresses[i]) / speeds[i];
+//
+//            if ((100 - progresses[i]) % speeds[i] != 0) {
+//                works[i] += 1;
+//            }
+//        }
+//
+//        int x = works[0];
+//        int count = 1;
+//
+//        for (int i = 1; i < progresses.length; i++) {
+//            if (x >= works[i]) {
+//                count += 1;
+//            } else {
+//                list.add(count);
+//                count = 1;
+//                x = works[i];
+//            }
+//        }
+//
+//        list.add(count);
+//
+//        /**
+//         * list to array 숙지
+//         */
+//        return list.stream()
+//                .mapToInt(i -> (int) i)
+//                .toArray();
 
         /**
-         * 일이 끝나는 일수 배열
+         * =================================================================================
+         * queue를 활용한 풀이
          */
-        int[] works = new int[progresses.length];
+
+        /**
+         * queue 배열
+         * - 각 task마다 걸리는 일 수
+         */
+        Queue<Integer> queue = new LinkedList<>();
 
         for (int i = 0; i < speeds.length; i++) {
-            works[i] = (100 - progresses[i]) / speeds[i];
-
-            if ((100 - progresses[i]) % speeds[i] != 0) {
-                works[i] += 1;
-            }
+            queue.add((100 - progresses[i]) / speeds[i]);
         }
-
-        int x = works[0];
-        int count = 1;
-
-        for (int i = 1; i < progresses.length; i++) {
-            if (x >= works[i]) {
-                count += 1;
-            } else {
-                list.add(count);
-                count = 1;
-                x = works[i];
-            }
-        }
-        
-        list.add(count);
 
         /**
-         * list to array 숙지
+         * queue에서 하나씩 빼서 queue가 빌 때까지
          */
-        return list.stream()
-                .mapToInt(i -> (int) i)
-                .toArray();
+        List<Integer> answerList = new ArrayList<>();
+
+        int cur = queue.poll(); // queue에서 꺼내기
+        int cnt = 1;
+
+        while (!queue.isEmpty()) {
+            if (cur < queue.peek()) { // queue 꺼내서 이전 값이랑 비교. 현재값이 더 작으면 list에 담고 값 초기화
+                answerList.add(cnt);
+                cur = queue.poll();
+                cnt = 1;
+            } else {
+                cnt++;
+                queue.poll(); // queue 제일 앞 요소 제거
+            }
+        }
+
+        answerList.add(cnt); // queue가 다 비어 list에 add()되지 못하는 경우
+
+        return answerList.stream()
+            .mapToInt(Integer::intValue)
+            .toArray();
     }
 
     public static void main(String[] args) {
