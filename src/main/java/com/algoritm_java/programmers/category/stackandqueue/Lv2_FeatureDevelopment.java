@@ -54,36 +54,41 @@ public class Lv2_FeatureDevelopment {
          * queue 배열
          * - 각 task마다 걸리는 일 수
          */
-        Queue<Integer> queue = new LinkedList<>();
-
-        for (int i = 0; i < speeds.length; i++) {
-            queue.add((100 - progresses[i]) / speeds[i]);
-        }
-
-        /**
-         * queue에서 하나씩 빼서 queue가 빌 때까지
-         */
         List<Integer> answerList = new ArrayList<>();
 
-        int cur = queue.poll(); // queue에서 꺼내기
-        int cnt = 1;
+        try {
+            Queue<Integer> queue = new LinkedList<>();
 
-        while (!queue.isEmpty()) {
-            if (cur < queue.peek()) { // queue 꺼내서 이전 값이랑 비교. 현재값이 더 작으면 list에 담고 값 초기화
-                answerList.add(cnt);
-                cur = queue.poll();
-                cnt = 1;
-            } else {
-                cnt++;
-                queue.poll(); // queue 제일 앞 요소 제거
+            for (int i = 0; i < speeds.length; i++) {
+                double workDays = Math.ceil((double) (100 - progresses[i]) / speeds[i]);
+                queue.add((int) workDays);
             }
+
+            /**
+             * queue에서 하나씩 빼서 queue가 빌 때까지
+             */
+            int cur = queue.poll(); // queue에서 꺼내기
+            int cnt = 1;
+
+            while (!queue.isEmpty()) {
+                if (cur < queue.peek()) { // queue 꺼내서 이전 값이랑 비교. 현재값이 더 작으면 list에 담고 값 초기화
+                    answerList.add(cnt);
+                    cur = queue.poll();
+                    cnt = 1;
+                } else {
+                    cnt++;
+                    queue.poll(); // queue 제일 앞 요소 제거
+                }
+            }
+
+            answerList.add(cnt); // queue가 다 비어 list에 add()되지 못하는 경우
+        } catch (Exception e) {
+            System.out.println("e = " + e);
         }
 
-        answerList.add(cnt); // queue가 다 비어 list에 add()되지 못하는 경우
-
         return answerList.stream()
-            .mapToInt(Integer::intValue)
-            .toArray();
+                .mapToInt(Integer::intValue)
+                .toArray();
     }
 
     public static void main(String[] args) {
