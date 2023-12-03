@@ -15,55 +15,77 @@ public class Lv2_Process {
         /**
          * queue 생성 및 queue 초기화
          */
-        Queue<Integer> queue = new LinkedList<>();
-        for (int num : priorities) queue.add(num);
-
-        int answer = 0;
-        int count = 0;
-        int myLocation = location;
+//        Queue<Integer> queue = new LinkedList<>();
+//        for (int num : priorities) queue.add(num);
+//        int answer = 0;
+//        int count = 0;
+//        int myLocation = location;
+//        /**
+//         * queue에 값이 있을 동안 loop
+//         */
+//        while (!queue.isEmpty()) {
+//            int cur = queue.poll(); // 현재값 뽑기
+//            int bigger = getBigger(cur, queue); // 현재값과 queue에서 가장 큰 값 중 더 큰 값
+//            if (bigger > cur) { // queue에 더 큰 값이 남아 있다면 -> queue에 현재값 추가
+//                queue.add(cur);
+//            } else {
+//                count++;
+//                if (myLocation == 0) {
+//                    answer = count;
+//                    break;
+//                }
+//            }
+//            myLocation--;
+//            if (myLocation == -1) {
+//                myLocation = queue.size() - 1;
+//            }
+//        }
+//        return answer;
 
         /**
-         * queue에 값이 있을 동안 loop
+         * PriorityQueue 활용
+         *
+         */
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        int answer = 0;
+
+        /**
+         * pq 초기화
+         */
+        for (int num : priorities) queue.offer(num);
+
+        /**
+         * pq가 빌 때까지 loop
+         *  - queue에서의 값과 priorities 값 비교
          */
         while (!queue.isEmpty()) {
-            int cur = queue.poll(); // 현재값 뽑기
-            int bigger = getBigger(cur, queue); // 현재값과 queue에서 가장 큰 값 중 더 큰 값
+            for (int i = 0; i < priorities.length; i++) {
+                if (queue.peek() == priorities[i]) {
+                    queue.poll();
+                    answer++;
 
-            if (bigger > cur) { // queue에 더 큰 값이 남아 있다면 -> queue에 현재값 추가
-                queue.add(cur);
-            } else {
-                count++;
-                if (myLocation == 0) {
-                    answer = count;
-                    break;
+                    if (location == i) {
+                        return answer;
+                    }
                 }
-            }
-
-            myLocation--;
-
-            if (myLocation == -1) {
-                myLocation = queue.size() - 1;
             }
         }
 
         return answer;
     }
-
     /**
      * 현재값과 queue에서 가장 큰 값 중 더 큰 값 리턴
      * @param cur
      * @param queue
      * @return
      */
-    public static int getBigger(int cur, Queue<Integer> queue) {
-        int max = cur;
-
-        for (int num : queue) {
-            max = Math.max(num, max);
-        }
-
-        return max;
-    }
+//    public static int getBigger(int cur, Queue<Integer> queue) {
+//        int max = cur;
+//        for (int num : queue) {
+//            max = Math.max(num, max);
+//        }
+//        return max;
+//    }
 
 
     public static void main(String[] args) {
