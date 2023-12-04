@@ -59,12 +59,12 @@ public class Lv2_Process {
          *  - queue에서의 값과 priorities 값 비교
          */
         while (!queue.isEmpty()) {
-            for (int i = 0; i < priorities.length; i++) {
+            for (int i = 0; i < priorities.length; i++) { // 우선순위 큐에서 꺼낸 값과 원래 배열의 값 비교해서 같으면 꺼내고 answer++
                 if (queue.peek() == priorities[i]) {
                     queue.poll();
                     answer++;
 
-                    if (location == i) {
+                    if (location == i) { // queue가 빌 때까지 순회하여 찾고자 하는 요소의 위치와 i가 같으면 return
                         return answer;
                     }
                 }
