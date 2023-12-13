@@ -31,7 +31,7 @@ public class Lv2_Carpet {
             }
         }
 
-        Collections.sort(list, Collections.reverseOrder());
+        list.sort(Collections.reverseOrder());
 
         for (int width : list) {
             int height = yellow / width;
