@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Lv2_VowelDictionary {
     static String[] vowels = {"A", "E", "I", "O", "U"};
-    static List<String> list;
+    static List<String> list = new ArrayList<>();
 
     public static void dfs(String cur, int len) {
         list.add(cur);
@@ -21,7 +21,6 @@ public class Lv2_VowelDictionary {
 
     public static int solution(String word) {
         int count = 0;
-        list = new ArrayList<>();
 
         /**
          * 사전: 모든 순열
