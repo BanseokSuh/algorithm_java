@@ -1,6 +1,6 @@
 package com.algoritm_java.leetcode.category.string;
 
-public class MergeAlternately {
+public class MergeAlternatelyStringBuilder {
 
     public String mergeAlternately(String word1, String word2) {
         int longer = Math.max(word1.length(), word2.length());
@@ -10,9 +10,11 @@ public class MergeAlternately {
         for (int i = 0; i < longer; i++) {
             if (i < word1.length()) {
                 sb.append(word1.charAt(i));
+                System.out.println("sb.hashCode() = " + sb.hashCode());
             }
             if (i < word2.length()) {
                 sb.append(word2.charAt(i));
+                System.out.println("sb.hashCode() = " + sb.hashCode());
             }
         }
 
@@ -29,7 +31,7 @@ public class MergeAlternately {
         String word5 = "abcd";
         String word6 = "pq";
 
-        MergeAlternately mergeAlternately = new MergeAlternately();
+        MergeAlternatelyStringBuilder mergeAlternately = new MergeAlternatelyStringBuilder();
 
         String result1 = mergeAlternately.mergeAlternately(word1, word2);
         String result2 = mergeAlternately.mergeAlternately(word3, word4);
