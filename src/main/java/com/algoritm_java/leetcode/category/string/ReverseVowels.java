@@ -20,18 +20,21 @@ public class ReverseVowels {
         int right = s.length() - 1;
 
         while (left < right) {
-            if (!isVowel(charArr[left])) {
+            char leftChar = charArr[left];
+            char rightChar = charArr[right];
+
+            if (!isVowel(leftChar)) {
                 left++;
                 continue;
             }
 
-            if (!isVowel(charArr[right])) {
+            if (!isVowel(rightChar)) {
                 right--;
                 continue;
             }
 
-            char tmp = charArr[right];
-            charArr[right] = charArr[left];
+            char tmp = rightChar;
+            charArr[right] = leftChar;
             charArr[left] = tmp;
 
             left++;
@@ -39,28 +42,6 @@ public class ReverseVowels {
         }
 
         return new String(charArr);
-
-//        StringBuilder sb = new StringBuilder();
-//        StringBuilder tmpStr = new StringBuilder();
-//
-//        for (int i = 0; i < s.length(); i++) {
-//            char c = s.charAt(i);
-//            if (isVowel(c)) {
-//                sb.append('*');
-//                tmpStr.append(c);
-//            } else {
-//                sb.append(c);
-//            }
-//        }
-//
-//        for (int i = tmpStr.length() - 1; i >= 0; i--) {
-//            char c = tmpStr.charAt(i);
-//            int idx = sb.indexOf("*");
-//
-//            sb.replace(idx, idx + 1, String.valueOf(c));
-//        }
-//
-//        return sb.toString();
     }
 
     static boolean isVowel(char c) {
