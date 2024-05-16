@@ -1,4 +1,4 @@
-package com.algoritm_java.programmers;
+package com.algoritm_java;
 
 public class Template {
     public static void main(String[] args) {
