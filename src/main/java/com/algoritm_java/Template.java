@@ -12,6 +12,12 @@ public class Template {
         System.out.println("answer3 = " + answer3);
     }
 
+    /**
+     * 문제 접근
+     * 핵심 알고리즘
+     * 시간복잡도
+     * 다른 방식
+     */
     public static int solution(int a) {
         return 0;
     }
