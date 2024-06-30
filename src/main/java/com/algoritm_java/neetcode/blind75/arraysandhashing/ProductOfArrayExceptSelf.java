@@ -44,7 +44,7 @@ public class ProductOfArrayExceptSelf {
             leftMultiArr[i] = leftMultiArr[i - 1] * nums[i - 1];
         }
 
-        for (int i = nums.length - 2; i > 0 ; i--) {
+        for (int i = nums.length - 2; i > -1 ; i--) {
             rightMultiArr[i] = rightMultiArr[i + 1] * nums[i + 1];
         }
 
