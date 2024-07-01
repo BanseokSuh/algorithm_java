@@ -29,7 +29,7 @@ public class LongestConsecutiveSequence {
      */
     public static int solution(int[] nums) {
         /*
-            - O(N)
+            - O(nlogn)
             - sortedSet
             - There should be a better way
          */
