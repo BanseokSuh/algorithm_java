@@ -1,4 +1,4 @@
-package com.algoritm_java.neetcode.blind75.twopointers;
+package com.algoritm_java.neetcode.blind75.v1.twopointers;
 
 public class ValidPalindrome {
     public static void main(String[] args) {

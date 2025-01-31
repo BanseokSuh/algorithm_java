@@ -21,6 +21,7 @@ public class Template {
     public static String mySolution(int a) {
         return null;
     }
+
     public static String refSolution(int a) {
         return null;
     }

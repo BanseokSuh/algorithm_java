@@ -1,8 +1,7 @@
-package com.algoritm_java.neetcode.blind75.arraysandhashing;
+package com.algoritm_java.neetcode.blind75.v1.arraysandhashing;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class TwoSums {
     public static void main(String[] args) {

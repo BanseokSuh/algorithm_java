@@ -1,4 +1,4 @@
-package com.algoritm_java.neetcode.blind75.slidingwindow;
+package com.algoritm_java.neetcode.blind75.v1.slidingwindow;
 
 import java.util.HashSet;
 import java.util.Set;
